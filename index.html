@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AlphaBrain</title>
+  <meta name="description" content="Intelligence in progress.">
+  <meta name="theme-color" content="#040707">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://alphabrain.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AlphaBrain">
+  <meta property="og:title" content="AlphaBrain">
+  <meta property="og:description" content="Intelligence in progress.">
+  <meta property="og:url" content="https://alphabrain.github.io/">
+  <meta property="og:image" content="https://alphabrain.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AlphaBrain">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AlphaBrain">
+  <meta name="twitter:description" content="Intelligence in progress.">
+  <meta name="twitter:image" content="https://alphabrain.github.io/assets/og.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" href="assets/logo-1200.webp"
+        imagesrcset="assets/logo-1200.webp 1200w, assets/logo-2400.webp 2400w"
+        imagesizes="(max-width: 600px) 68vw, 36vw" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <canvas class="field" aria-hidden="true"></canvas>
+
+  <header class="hud hud--top">
+    <p class="hud__item" data-decode>ALPHABRAIN <span class="dim">/</span> LAB_01</p>
+    <p class="hud__item hud__status" data-decode><span class="pip" aria-hidden="true"></span>ONLINE</p>
+  </header>
+
+  <main class="core">
+    <div class="mark">
+      <h1 class="mark__title"><img class="mark__glyphs"
+           src="assets/logo-1200.webp"
+           srcset="assets/logo-1200.webp 1200w, assets/logo-2400.webp 2400w"
+           sizes="(max-width: 600px) 68vw, 36vw"
+           width="1200" height="498" alt="AlphaBrain" decoding="async" fetchpriority="high"></h1>
+      <button class="mark__dot" type="button" aria-label="Transmit signal">
+        <span class="ring" aria-hidden="true"></span>
+        <span class="ring" aria-hidden="true"></span>
+        <span class="ring" aria-hidden="true"></span>
+      </button>
+    </div>
+    <p class="tagline"><span class="sr-only">Intelligence in progress.</span><span class="tagline__text" aria-hidden="true">INTELLIGENCE IN PROGRESS.</span><span class="caret" aria-hidden="true"></span></p>
+    <p class="sr-only" role="status" aria-live="polite" id="status"></p>
+  </main>
+
+  <footer class="hud hud--bottom">
+    <p class="hud__item" data-decode>47.92° N <span class="dim">/</span> 106.92° E</p>
+    <p class="hud__item" data-decode>EST. 2018</p>
+  </footer>
+
+  <noscript><style>.mark__dot{cursor:default}</style></noscript>
+</body>
+</html>
