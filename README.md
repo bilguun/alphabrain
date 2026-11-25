@@ -2,7 +2,7 @@
 
 Intelligence in progress.
 
-Static site for [alphabrain.github.io](https://alphabrain.github.io). No build step, no dependencies, no tracking.
+Static site, live at [bilguun.github.io/alphabrain](https://bilguun.github.io/alphabrain/). No build step, no dependencies, no tracking.
 
 ```
 index.html      markup + metadata

@@ -97,7 +97,7 @@
   // clean zones: behind the mark, and the HUD bands top + bottom
   function fadeAt(x, y) {
     const edge = Math.min(y, field.H - y);
-    return smooth(1, 1.55, zoneDist(x, y)) * (.3 + .7 * smooth(28, 96, edge));
+    return smooth(1, 1.55, zoneDist(x, y)) * (.3 + .7 * smooth(36, 124, edge));
   }
 
   function measure() {
@@ -504,6 +504,28 @@
   }
 
   dot.addEventListener('click', activate);
+
+  /* ─────────────────── clocks ─────────────────── */
+
+  const clockEl = document.getElementById('clock');
+  const uptimeEl = document.getElementById('uptime');
+  const EPOCH = Date.UTC(2017, 11, 31, 16, 0, 0); // 2018-01-01 00:00 ULAT (UTC+8)
+  let ubFormat = null;
+  try {
+    ubFormat = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ulaanbaatar', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  } catch (_) { /* very old engines: fall back to fixed UTC+8 */ }
+  const pad = (n) => String(n).padStart(2, '0');
+
+  function tickClocks() {
+    const t = Date.now();
+    if (ubFormat) clockEl.textContent = ubFormat.format(t);
+    else { const d = new Date(t + 8 * 3600e3); clockEl.textContent = `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}`; }
+    const s = Math.floor((t - EPOCH) / 1000);
+    const days = Math.floor(s / 86400);
+    uptimeEl.textContent = `${days}D ${pad(Math.floor(s / 3600) % 24)}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+  }
+  tickClocks();
+  setInterval(tickClocks, 1000);
 
   /* ─────────────────── intro ─────────────────── */
 
